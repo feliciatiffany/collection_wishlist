@@ -117,7 +117,7 @@
       <section class="folderGrid">
         {% if (list | length) %}
           {% for page in list %}
-            <a class="wishlistFolder" href="{{ page.url }}">
+            <a class="wishlistFolder" href="{{ page.data.permalink }}">
               <img src="./images/bluefolder.png" alt="Folder icon">
               <span class="title">{{ page.data.title }}</span>
             </a>
