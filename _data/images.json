@@ -1,78 +1,78 @@
 [
   {
-    "url": "/images/aurora.JPG",
+    "url": "./images/aurora.JPG",
     "alt": "Aurora borealis"
   },
   {
-    "url": "/images/cambridge.png",
+    "url": "./images/cambridge.png",
     "alt": "University of Cambridge"
   },
   {
-    "url": "/images/harvard.png",
+    "url": "./images/harvard.png",
     "alt": "Harvard University"
   },
   {
-    "url": "/images/mit.png",
+    "url": "./images/mit.png",
     "alt": "Massachusetts Institute of Technology"
   },
   {
-    "url": "/images/canada.JPG",
+    "url": "./images/canada.JPG",
     "alt": "Scenery in Canada"
   },
   {
-    "url": "/images/nagoya.JPG",
+    "url": "./images/nagoya.JPG",
     "alt": "Nagoya city view"
   },
   {
-    "url": "/images/nagoya2.JPG",
+    "url": "./images/nagoya2.JPG",
     "alt": "Nagoya city night view"
   },
   {
-    "url": "/images/nintendo.JPG",
+    "url": "./images/nintendo.JPG",
     "alt": "Nintendo Cute"
   },
   {
-    "url": "/images/nintendo2.JPG",
+    "url": "./images/nintendo2.JPG",
     "alt": "Nintendo console"
   },
   {
-    "url": "/images/papua.JPG",
+    "url": "./images/papua.JPG",
     "alt": "Papua landscape"
   },
   {
-    "url": "/images/papua2.JPG",
+    "url": "./images/papua2.JPG",
     "alt": "Papua Volunteering"
   },
   {
-    "url": "/images/oxford.png",
+    "url": "./images/oxford.png",
     "alt": "University of Oxford"
   },
   {
-    "url": "/images/snowboard.JPG",
+    "url": "./images/snowboard.JPG",
     "alt": "Snowboarder"
   },
   {
-    "url": "/images/columbia.JPG",
+    "url": "./images/columbia.JPG",
     "alt": "Columbia University campus"
   },
   {
-    "url": "/images/aurora2.JPG",
+    "url": "./images/aurora2.JPG",
     "alt": "Aurora borealis"
   },
   {
-    "url": "/images/snowboard2.JPG",
+    "url": "./images/snowboard2.JPG",
     "alt": "Snowboard pic"
   },
   {
-    "url": "/images/toronto.JPG",
+    "url": "./images/toronto.JPG",
     "alt": "Toronto"
   },
   {
-    "url": "/images/ucla.png",
+    "url": "./images/ucla.png",
     "alt": "UCLA campus"
   },
   {
-    "url": "/images/vancouver.JPG",
+    "url": "./images/vancouver.JPG",
     "alt": "Vancouver "
   }
 ]

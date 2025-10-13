@@ -20,7 +20,7 @@
         <div class="section-label">Favorites</div>
 
         <!-- Home -->
-        <a class="item"  href=" {{ home }}">
+        <a class="item"  href="{{ home }}">
           <!-- Look-alike Home icon -->
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -41,7 +41,7 @@
         </a>
 
         <!-- Galleries -->
-        <a class="item"  href=" {{ galleries }}">
+        <a class="item"  href="{{ galleries }}">
           <!-- Look-alike galleries icon -->
          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -59,7 +59,7 @@
       <div class="section-label">Folders
       <div class="sidebarFolders" >
         {% for wish in collections.all %}
-          <a class="item" href=" {{ wish.data.permalink }}" role="listitem">
+          <a class="item" href="{{ wish.data.permalink }}" role="listitem">
             <!-- Look-alike Folder icon -->
             <svg class="icon folder" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
