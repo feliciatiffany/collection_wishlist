@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wishlist Finder</title>
+  <link rel="stylesheet" href="../styles/wishlistStyle.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <div class="sidebar" >
+      <div class="dots">
+         <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      
+      <nav class="nav">
+        <div class="section-label">Favorites</div>
+
+        <!-- Home -->
+        <a class="item"  href=" index.html">
+          <!-- Look-alike Home icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 11l9-8 9 8"></path>
+            <path d="M9 22V12h6v10"></path>
+          </svg>
+          <span>Home</span>
+        </a>
+
+        <!-- Wishlist -->
+        <a class="item"  id="itemCurrent" >
+          <!-- Look-alike Heart icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.8 6.6a5.5 5.5 0 0 0-7.8 0L12 7.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-6.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path>
+          </svg>
+          <span>Wishlist</span>
+        </a>
+
+        <!-- Galleries -->
+        <a class="item"  href=" galleries.html">
+          <!-- Look-alike galleries icon -->
+         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <!-- frame (bigger) -->
+            <path d="M3 5h18v14H3z"/>
+            <!-- sun (slightly larger) -->
+            <circle cx="10" cy="10" r="2"/>
+            <!-- mountains (scaled up) -->
+            <path d="M3 17l5-5 3 3 2-2 6 6"/>
+          </svg>
+          <span>Galleries</span>
+        </a>
+      </nav>
+
+      <div class="section-label">Folders
+      <div class="sidebarFolders" >
+        
+          <a class="item" href=" nagoya.html" role="listitem">
+            <!-- Look-alike Folder icon -->
+            <svg class="icon folder" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 7h6l2 3h10v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path>
+            </svg>
+            <span>Nagoya, Japan</span>
+          </a>
+        
+          <a class="item" href=" nintendo.html" role="listitem">
+            <!-- Look-alike Folder icon -->
+            <svg class="icon folder" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 7h6l2 3h10v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path>
+            </svg>
+            <span>Nintendo Switch</span>
+          </a>
+        
+          <a class="item" href=" snowboard.html" role="listitem">
+            <!-- Look-alike Folder icon -->
+            <svg class="icon folder" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 7h6l2 3h10v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path>
+            </svg>
+            <span>Snowboard/ski</span>
+          </a>
+        
+          <a class="item" href=" aurora.html" role="listitem">
+            <!-- Look-alike Folder icon -->
+            <svg class="icon folder" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 7h6l2 3h10v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path>
+            </svg>
+            <span>Aurora</span>
+          </a>
+        
+          <a class="item" href=" master.html" role="listitem">
+            <!-- Look-alike Folder icon -->
+            <svg class="icon folder" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 7h6l2 3h10v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path>
+            </svg>
+            <span>Master Degree</span>
+          </a>
+        
+          <a class="item" href=" canada.html" role="listitem">
+            <!-- Look-alike Folder icon -->
+            <svg class="icon folder" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 7h6l2 3h10v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path>
+            </svg>
+            <span>Canada</span>
+          </a>
+        
+          <a class="item" href=" papua.html" role="listitem">
+            <!-- Look-alike Folder icon -->
+            <svg class="icon folder" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 7h6l2 3h10v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path>
+            </svg>
+            <span>Volunteer in Papua</span>
+          </a>
+        
+      
+      
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <!-- TopBar -->
+    <main class="content">
+
+        <!-- Filter first -->
+        
+
+        
+          
+        
+
+
+
+      <div class="topBar" >
+        <span>Locations</span>
+        <span>›</span>
+        <b>Home</b>
+        <div class="filtercontainer">
+          <div class="filterbox">
+            <div id="priority" > Priority  </div>
+            <span>›</span>
+              <a class="filteritem"
+                  href="wishlist.html">All</a>
+             <a class="filteritem"
+                href="priority-high.html">High</a>
+
+              <a class="filteritem"
+                href="priority-medium.html">Medium</a>
+
+              <a class="filteritem is-active"
+                href="priority-low.html">Low</a>
+
+          </div>
+        </div>
+      </div>
+     
+       
+
+      <section class="folderGrid">
+        
+          
+            <a class="wishlistFolder" href="/nintendo.html">
+              <img src="/images/bluefolder.png" alt="Folder icon">
+              <span class="title">Nintendo Switch</span>
+            </a>
+          
+            <a class="wishlistFolder" href="/aurora.html">
+              <img src="/images/bluefolder.png" alt="Folder icon">
+              <span class="title">Aurora</span>
+            </a>
+          
+        
+      </section>
+    </main>
+  </div>
+</body>
+</html>

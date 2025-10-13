@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Galleries</title>
+  <link rel="stylesheet" href="../styles/galleries.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <div class="sidebar" >
+      <div class="dots">
+         <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="section-label">Favorites</div>
+      <nav class="nav" >
+        <!-- Home -->
+        <a class="item" href=" {{ home }}" >
+          <!-- Look-alike Home icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 11l9-8 9 8"></path>
+            <path d="M9 22V12h6v10"></path>
+          </svg>
+          <span>Home</span>
+        </a>
+        <!-- Wishlist -->
+        <a class="item"   href=" {{ wishlist }}" >
+          <!-- Look-alike Heart icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.8 6.6a5.5 5.5 0 0 0-7.8 0L12 7.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-6.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path>
+          </svg>
+          <span>Wishlist</span>
+        </a>
+
+        <!-- Galleries -->
+        <a class="item" id="itemCurrent" >
+          <!-- Look-alike galleries icon -->
+         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <!-- frame (bigger) -->
+            <path d="M3 5h18v14H3z"/>
+            <!-- sun (slightly larger) -->
+            <circle cx="10" cy="10" r="2"/>
+            <!-- mountains (scaled up) -->
+            <path d="M3 17l5-5 3 3 2-2 6 6"/>
+          </svg>
+
+
+          <span>Galleries</span>
+        </a>
+      </nav>
+
+      <div class="section-label">Folders
+      <div class="sidebarFolders" >
+        {% for wish in collections.all %}
+          <a class="item" href=" {{ wish.data.permalink }}" role="listitem">
+            <!-- Look-alike Folder icon -->
+            <svg class="icon folder" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 7h6l2 3h10v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path>
+            </svg>
+            <span>{{ wish.data.title }}</span>
+          </a>
+        {% endfor %}
+      
+      
+        </div>
+      </div>
+    </div>
+
+    <!-- IMAGES GALLERIES -->
+    
+    <main class="content">
+    
+      <div class="topBar" >
+        <div class="topBarItem">
+          <span>Locations</span>
+          <span> › </span>
+          <b>Home</b>
+        </div>
+      </div>
+    <div class="image-grid-wrapper">
+    <!-- First grid -->
+    <div class="image-grid">
+      {% for image in images %}
+        {% if loop.index % 3 == 2 %}
+          <img src="{{ image.url }}" alt="{{ image.alt or '' }}" >
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Second grid -->
+    <div class="image-grid">
+      {% for image in images %}
+        {% if loop.index % 3 == 1 %}
+          <img src="{{ image.url }}" alt="{{ image.alt or '' }}" loading="lazy">
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Last grid -->
+    <div class="image-grid">
+      {% for image in images %}
+        {% if loop.index % 3 == 0 %}
+          <img src="{{ image.url }}" alt="{{ image.alt or '' }}" loading="lazy">
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+    </main>
+  </div>
+
+</body>
+</html>

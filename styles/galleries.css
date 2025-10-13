@@ -1,0 +1,148 @@
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: #f6f7f8;
+  color: #0f172a;
+  font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+.app {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 100%;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+  border-right: 1px solid #e5e7eb;
+  background: #ffffff;
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+  gap: 8px;
+}
+.section {
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 12px;
+  letter-spacing: .02em;
+  padding: 6px 8px 4px;
+  text-transform: none;
+}
+.nav {
+  display: grid;
+  gap: 4px;
+  padding: 2px 0 6px;
+}
+
+/* red traffic button */
+.dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.25);
+}
+
+.red    { background: #ff5f57; }
+.yellow { background: #febc2e; }
+.green  { background: #28c940; }
+
+/* folder */
+.item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+.item:hover { background: #f1f5f9; }
+#itemCurrent {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+.item:focus-visible {
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+.icon {
+  width: 18px;
+  height: 18px;
+  color: #0066CC;
+  display: inline-block;
+  
+}
+.folder{
+  color: inherit;
+}
+.sidebarFolders {
+  display: grid;
+  gap: 10px;
+  padding-bottom: 8px;
+  overflow: auto;
+}
+.content {
+  overflow: auto;
+}
+/* TOP BAR NAV */
+.topBar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  gap:8px;
+  height: 60px;
+  align-items: center;
+  font-size: 12px;
+  color: #6b7280;
+  background-color: rgba(255,255,255,0.5);
+}
+.topBar b{
+    color: #0f172a;
+}
+.topBarItem { 
+  display: flex;
+  margin-left:20px;
+  gap:8px;
+  font-size: 12px;
+  color: #6b7280;
+  border-bottom: 1px solid #ffffff;
+  
+}
+
+.image-grid-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 70px 2rem;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2rem;
+  top:0;
+}
+
+.image-grid img {
+  width: 300px;
+  height: auto;
+  border-radius: 20px;
+  /* box-shadow: 0 4px 10px rgba(0,0,0,0.15); */
+
+}
+
