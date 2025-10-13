@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Wishlist Finder</title>
-  <link rel="stylesheet" href="../styles/wishlistStyle.css" />
+  <link rel="stylesheet" href="./styles/wishlistStyle.css" />
 </head>
 <body>
   <div class="app">
@@ -118,7 +118,7 @@
         {% if (list | length) %}
           {% for page in list %}
             <a class="wishlistFolder" href="{{ page.url }}">
-              <img src="/images/bluefolder.png" alt="Folder icon">
+              <img src="./images/bluefolder.png" alt="Folder icon">
               <span class="title">{{ page.data.title }}</span>
             </a>
           {% endfor %}
