@@ -15,7 +15,7 @@
     seed: 12345
   };
 
-  // --- RNG (supports seeding) ---
+  // RNG with optional seeding
   function mulberry32(a) {
     return function() {
       let t = a += 0x6D2B79F5;
@@ -28,49 +28,49 @@
   const rand = (min, max) => rng() * (max - min) + min;
 
   // --- Layout helpers ---
-  function getAvailableStageSize() {
-    const headerH = document.querySelector('.topBar')?.offsetHeight || 0;
+  function computeDesiredHeight() {
+    // Fill at least the viewport below the stage's current top edge.
+    const rect = stage.getBoundingClientRect();
+    const viewportH = window.innerHeight;
 
-    // Target height: viewport minus header (not dependent on stage's current top)
-    const targetH = Math.max(window.innerHeight - headerH, 0);
+    // Remaining space in viewport from stage top:
+    const remaining = Math.max(0, viewportH - rect.top);
 
-    // Never go below the content's natural height (protect against shrinking)
+    // Natural content height (in case content is taller)
     const naturalH = Math.max(stage.scrollHeight, stage.clientHeight || 0);
-    const availableH = Math.max(targetH, naturalH);
 
-    // Width: prefer stage width; fallback to viewport width
-    const viewW = document.documentElement.clientWidth || window.innerWidth;
-    const availableW = stage.clientWidth || viewW;
-
-    return { availableW, availableH };
+    // Final desired height
+    return Math.max(remaining, naturalH, 320); // 320px guard so it's never tiny
   }
 
   function placeAll() {
-    const { availableW, availableH } = getAvailableStageSize();
+    // Force an explicit height so CSS `height:100%` can't shrink it.
+    const desiredH = computeDesiredHeight();
+    stage.style.height = desiredH + 'px';
 
-    // Only ever INCREASE min-height; do not shrink below existing CSS
-    const currentMin = parseFloat(getComputedStyle(stage).minHeight) || 0;
-    if (availableH > currentMin) {
-      stage.style.minHeight = availableH + 'px';
-    }
-
-    // Reset + measure + place
+    // Prepare, measure, and place items
     const placed = [];
 
     items.forEach(el => {
-      // Prepare for accurate measurements with rotation applied
+      // Pre-rotate before measuring (offsetWidth/Height uses layout box)
       el.style.position = 'absolute';
       el.style.visibility = 'hidden';
       el.style.left = '0px';
       el.style.top  = '0px';
       el.style.transform = `rotate(${rand(config.rotateMin, config.rotateMax).toFixed(1)}deg)`;
+    });
 
-      const w = el.offsetWidth;   // includes padding/border
+    // Stage usable area
+    const stageW = stage.clientWidth || document.documentElement.clientWidth;
+    const stageH = desiredH;
+
+    items.forEach(el => {
+      const w = el.offsetWidth;
       const h = el.offsetHeight;
-
       const pad = config.padding;
-      const maxX = Math.max(pad, availableW - w - pad);
-      const maxY = Math.max(pad, availableH - h - pad);
+
+      const maxX = Math.max(pad, stageW - w - pad);
+      const maxY = Math.max(pad, stageH - h - pad);
 
       let ok = false, tries = 0, x = pad, y = pad;
 
@@ -84,7 +84,6 @@
       }
 
       if (!ok) {
-        // Clamp into bounds if we ran out of tries
         x = Math.min(maxX, Math.max(pad, x));
         y = Math.min(maxY, Math.max(pad, y));
       }
@@ -97,7 +96,7 @@
     });
   }
 
-  // --- Debounce for resize ---
+  // Debounce helper
   function debounce(fn, ms) {
     let t;
     return (...args) => {
@@ -106,32 +105,29 @@
     };
   }
 
-  // --- Initialize after images are ready ---
-  function onReady() {
+  // Initialize after images are ready (so sizes are correct)
+  function init() {
     const imgs = Array.from(stage.querySelectorAll('img'));
     if (!imgs.length) {
       placeAll();
       return;
     }
-
     let loaded = 0;
     const done = () => { if (++loaded === imgs.length) placeAll(); };
-
     imgs.forEach(img => {
       if (img.complete) {
-        // Ensure layout has accounted for the image
         requestAnimationFrame(done);
       } else {
         img.addEventListener('load', done, { once: true });
-        img.addEventListener('error', done, { once: true }); // don't block if an image fails
+        img.addEventListener('error', done, { once: true });
       }
     });
   }
 
-  document.addEventListener('DOMContentLoaded', onReady);
+  document.addEventListener('DOMContentLoaded', init);
   window.addEventListener('resize', debounce(placeAll, 120));
 
-  // Optional: manual reshuffle hook
+  // Optional: manual reshuffle
   window.randomizeFloatItems = () => {
     if (config.seeded) {
       config.seed++;
