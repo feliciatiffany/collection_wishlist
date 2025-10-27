@@ -4,33 +4,35 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>WishList</title>
-  <link rel="stylesheet" href="./styles/collectionStyle.css" />
+  <link rel="stylesheet" href="/styles/home.css" />
 </head>
 <body>
-  <div class="wishBody">
-     <!-- Top Bar -->
-    <div class="topBar" >
-        <div class="topBar-group">
-            <a class="topBar-list" href="{{ home }}">Home</a>
-            <a class="topBar-list" href="{{ wishlist }}" >Wishlist</a>
-        </div>
+  <main class="container">
+
+    <div class="folderGrid">
+      <img src="/images/bluefolder.png" alt="folder Picture Icon">
+      <span class="title">Wishlist</span>
     </div>
-
-   <main class="content">
-    <section class="floatStage" >
-        {% for wishImage in img%}
-          <div class="floatItem"> 
-           <img src="./images/{{ wishImage }}">
+    <div class="folderGrid">
+      <img src="/images/bluefolder.png" alt="folder Picture Icon">
+      <a href="fany.me" class="title">Portfolio </a>
+    </div>
+  
+     <div class="topBar" >
+        <span>Locations</span>
+        <span>›</span>
+        <b>Home</b>
+        <div class="filterbox">
+          <div class="filteritem">
+            <div>Object</div>
+            <div>Experience</div>
+            <div>Place</div>
           </div>
-        {% endfor %}
-        <div class="floatItem" id="title"> {{ title }} </div>
-        <div class="floatItem" id="description"> {{ description }} </div>
-        <a class="floatItem" id="linkButton" href="{{ link }}"> Learn More </a>
-        <div class="floatItem" id="content"> {{ content | safe }} </div>
-    </section>
-    </main>
+        </div>
+        
+      </div>
+  </main>
 
-  </div>
 </body>
 <script src="/scripts/randomizer.js" defer></script>
 </html>

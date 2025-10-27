@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Galleries</title>
-  <link rel="stylesheet" href="./styles/galleries.css" />
+  <link rel="stylesheet" href="../styles/galleries.css" />
 </head>
 <body>
   <div class="app">
@@ -18,7 +18,7 @@
       <div class="section-label">Favorites</div>
       <nav class="nav" >
         <!-- Home -->
-        <a class="item" href="{{ home }}" >
+        <a class="item" href=" {{ home }}" >
           <!-- Look-alike Home icon -->
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -28,7 +28,7 @@
           <span>Home</span>
         </a>
         <!-- Wishlist -->
-        <a class="item"   href="{{ wishlist }}" >
+        <a class="item"   href=" {{ wishlist }}" >
           <!-- Look-alike Heart icon -->
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -55,10 +55,11 @@
         </a>
       </nav>
 
+    <!-- Navigation sidebar for more visible access of wishlist -->
       <div class="section-label">Folders
       <div class="sidebarFolders" >
         {% for wish in collections.all %}
-          <a class="item" href="{{ wish.data.permalink }}" role="listitem">
+          <a class="item" href=" {{ wish.data.permalink }}" role="listitem">
             <!-- Look-alike Folder icon -->
             <svg class="icon folder" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -73,7 +74,7 @@
       </div>
     </div>
 
-    <!-- IMAGES GALLERIES -->
+    <!-- IMAGES GALLERIES : All pictures that is used in wishlist Collection page -->
     
     <main class="content">
     
@@ -88,7 +89,7 @@
     <!-- First grid -->
     <div class="image-grid">
       {% for image in images %}
-        {% if loop.index % 3 == 1 %}
+        {% if loop.index % 3 == 2 %}
           <img src="{{ image.url }}" alt="{{ image.alt or '' }}" >
         {% endif %}
       {% endfor %}
@@ -97,7 +98,7 @@
     <!-- Second grid -->
     <div class="image-grid">
       {% for image in images %}
-        {% if loop.index % 3 == 2 %}
+        {% if loop.index % 3 == 1 %}
           <img src="{{ image.url }}" alt="{{ image.alt or '' }}" loading="lazy">
         {% endif %}
       {% endfor %}

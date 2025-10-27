@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>WishList</title>
-  <link rel="stylesheet" href="./styles/collectionStyle.css" />
+  <link rel="stylesheet" href="/styles/collectionStyle.css" />
 </head>
 <body>
   <div class="wishBody">
-     <!-- Top Bar -->
+     <!-- Top Bar (navigation to home or wishlist list)-->
     <div class="topBar" >
         <div class="topBar-group">
             <a class="topBar-list" href="{{ home }}">Home</a>
@@ -16,11 +16,12 @@
         </div>
     </div>
 
+   <!-- Content (Randomize placing of wishlist items) -->
    <main class="content">
     <section class="floatStage" >
         {% for wishImage in img%}
           <div class="floatItem"> 
-           <img src="./images/{{ wishImage }}">
+           <img src="/images/{{ wishImage }}">
           </div>
         {% endfor %}
         <div class="floatItem" id="title"> {{ title }} </div>

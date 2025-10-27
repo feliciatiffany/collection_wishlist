@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Wishlist Finder</title>
-  <link rel="stylesheet" href="./styles/wishlistStyle.css" />
+  <link rel="stylesheet" href="../styles/wishlistStyle.css" />
 </head>
 <body>
   <div class="app">
-    <!-- Sidebar -->
+    <!-- Sidebar (dropdown navigation) -->
     <div class="sidebar" >
       <div class="dots">
          <span class="dot red"></span>
@@ -20,8 +20,9 @@
         <div class="section-label">Favorites</div>
 
         <!-- Home -->
-        <a class="item"  href="{{ home }}">
+        <a class="item"  href=" {{ home }}">
           <!-- Look-alike Home icon -->
+           <!-- ChatGPT reference -->
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M3 11l9-8 9 8"></path>
@@ -41,7 +42,7 @@
         </a>
 
         <!-- Galleries -->
-        <a class="item"  href="{{ galleries }}">
+        <a class="item"  href=" {{ galleries }}">
           <!-- Look-alike galleries icon -->
          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -56,10 +57,11 @@
         </a>
       </nav>
 
+       <!-- Navigation sidebar for more visible access of wishlist -->
       <div class="section-label">Folders
       <div class="sidebarFolders" >
         {% for wish in collections.all %}
-          <a class="item" href="{{ wish.data.permalink }}" role="listitem">
+          <a class="item" href=" {{ wish.data.permalink }}" role="listitem">
             <!-- Look-alike Folder icon -->
             <svg class="icon folder" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -78,7 +80,7 @@
     <!-- TopBar -->
     <main class="content">
 
-        <!-- Filter first -->
+        <!-- Filtering wishlist with priority categories -->
         {% set priority = priority or '' %}
 
         {% if priority %}
@@ -86,6 +88,7 @@
         {% else %}
           {% set list = (collections.all) %}
         {% endif %}
+
 
 
 
@@ -113,12 +116,12 @@
       </div>
      
        
-
+       <!-- Displaying folder of wishlist based on filter -->
       <section class="folderGrid">
         {% if (list | length) %}
           {% for page in list %}
-            <a class="wishlistFolder" href="{{ page.data.permalink }}">
-              <img src="./images/bluefolder.png" alt="Folder icon">
+            <a class="wishlistFolder" href="{{ page.url }}">
+              <img src="/images/bluefolder.png" alt="Folder icon">
               <span class="title">{{ page.data.title }}</span>
             </a>
           {% endfor %}
